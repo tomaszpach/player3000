@@ -102,10 +102,10 @@ export const VideoPlayer = ({ src, title }) => {
                             className={`actions ${showControls ? 'visible' : 'hidden'}`}
                         >
                             <button
-                                id="play"
                                 aria-label="Play"
                                 role="button"
                                 onClick={handlePlayPause}
+                                className={isPlaying ? 'pause' : 'play'}
                             >
                                 {isPlaying ? '❙❙' : '►'}
                             </button>

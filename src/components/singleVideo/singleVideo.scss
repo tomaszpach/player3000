@@ -1,28 +1,65 @@
 /* single video */
+//width: 100%    !important;
+//height: 100%   !important;
+.single-video {
+    figure {
+        margin: 0;
+        position: relative;
 
-figure {
-    margin: 0;
-    position: relative;
+        video {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 1200px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-    figcaption {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        position: absolute;
-        bottom: 6px;
-        width: 100%;
-
-        .actions {
+        figcaption {
             display: flex;
+            flex-direction: column;
             gap: 10px;
-            align-items: center;
+            position: absolute;
+            bottom: 6px;
+            width: 100%;
+            max-width: 1200px;
 
-            &.visible {
-                visibility: visible;
-            }
+            .actions {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 0 15px;
 
-            &.hidden {
-                visibility: hidden;
+                &.visible {
+                    visibility: visible;
+                }
+
+                &.hidden {
+                    visibility: hidden;
+                }
+
+                button {
+                    height: 35px;
+                    width: 35px;
+                    background-color: #e52e71;
+                    color: #fff;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    line-height: 1;
+                    transition: background-color 0.3s ease;
+
+                    &:hover {
+                        background-color: #ff8a00;
+                    }
+                }
+
+                label {
+                    height: 35px;
+                    border-radius: 15px;
+                    background-color: #eeeeee29;
+                    padding: 5px 10px;
+                }
             }
         }
     }
