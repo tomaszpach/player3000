@@ -4,11 +4,10 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import "./index.css";
+import "./index.scss";
 import {Root} from "./routes/root";
 import ErrorPage from "./error-page";
 import Contact from "./routes/contact";
-import {worker} from "./mocks/browser";
 import {Listing} from "./components/views/listing";
 import {SingleVideo} from "./components/singleVideo/singleVideo";
 

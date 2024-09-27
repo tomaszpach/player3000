@@ -104,7 +104,7 @@ export const VideoPlayer = ({ src, title }) => {
                                     onClick={handlePlayPause}>{isPlaying ? '❙❙' : '►'}</button>
                             <label id="timer" htmlFor="progress" role="timer">{currentTime} / {duration}</label>
                         </div>
-                        <progress id={`progress ${showControls ? 'visible' : 'hidden'}`} max="100" value={progress} onClick={handleProgressClick} onChange={handleTimeUpdate}>Progress
+                        <progress id='progress' className={showControls ? 'visible' : 'hidden'} max="100" value={progress} onClick={handleProgressClick} onChange={handleTimeUpdate}>Progress
                         </progress>
                     </figcaption>
                 </figure>

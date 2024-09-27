@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import {useParams} from "react-router-dom";
 import {fetchClipById} from "../../index";
 import {VideoPlayer} from "./videoPlayer";
+import './singleVideo.scss'
 
 export const SingleVideo = () => {
     const { videoId } = useParams();
