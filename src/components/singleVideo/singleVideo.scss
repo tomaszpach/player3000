@@ -12,7 +12,6 @@ figure {
     bottom: 6px;
     width: 100%;
 
-
     .actions {
       display: flex;
       gap: 10px;
@@ -29,7 +28,6 @@ figure {
   }
 }
 
-
 #progress {
   &.hidden {
     visibility: hidden;
@@ -42,19 +40,12 @@ figure {
     width: 100%;
 
     &::-webkit-progress-value {
-      background-image: linear-gradient(
-                      to right,
-                      #ff8a00, #e52e71
-      );
+      background-image: linear-gradient(to right, #ff8a00, #e52e71);
       transition: width 1s linear;
     }
 
     &::-moz-progress-bar {
-      background-image: -moz-linear-gradient(
-                      right,
-                      #ff8a00, #e52e71
-      );
+      background-image: -moz-linear-gradient(right, #ff8a00, #e52e71);
     }
   }
 }
-
