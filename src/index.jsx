@@ -11,35 +11,35 @@ import { SingleVideo } from './components/singleVideo/singleVideo';
 console.log('ttt process.env.NODE_ENV', process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === 'development') {
-  // server.listen()
-  // worker.start({ onUnhandledRequest: 'bypass' });
+    // server.listen()
+    // worker.start({ onUnhandledRequest: 'bypass' });
 }
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    // loader: rootLoader,
-    children: [
-      {
+    {
         path: '/',
-        element: <Listing />,
-      },
-      {
-        path: 'video/:videoId',
-        element: <SingleVideo />,
-      },
-      {
-        path: 'contacts/:contactId',
-        element: <Contact />,
-      },
-    ],
-  },
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        // loader: rootLoader,
+        children: [
+            {
+                path: '/',
+                element: <Listing />,
+            },
+            {
+                path: 'video/:videoId',
+                element: <SingleVideo />,
+            },
+            {
+                path: 'contacts/:contactId',
+                element: <Contact />,
+            },
+        ],
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>
 );
