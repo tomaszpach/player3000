@@ -8,8 +8,6 @@ import Contact from './routes/contact';
 import { Listing } from './components/views/listing';
 import { SingleVideo } from './components/singleVideo/singleVideo';
 
-console.log('ttt process.env.NODE_ENV', process.env.NODE_ENV);
-
 if (process.env.NODE_ENV === 'development') {
     // server.listen()
     // worker.start({ onUnhandledRequest: 'bypass' });

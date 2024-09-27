@@ -8,15 +8,11 @@ export const SingleVideo = () => {
     const { videoId } = useParams();
     const [video, setVideo] = React.useState(null);
 
-    console.log('ttt videoId', videoId);
-
     useEffect(() => {
         fetchClipById(videoId).then((data) => {
             setVideo(...data);
         });
     }, [videoId]);
-
-    console.log('ttt video', video);
 
     return (
         <div>

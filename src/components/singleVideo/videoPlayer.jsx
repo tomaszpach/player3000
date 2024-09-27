@@ -9,8 +9,6 @@ export const VideoPlayer = ({ src, title }) => {
     const [isHovered, setIsHovered] = React.useState(false);
     const [showControls, setShowControls] = React.useState(true);
 
-    console.log('ttt src', src);
-
     const formatTime = (seconds) => {
         const mins = Math.floor((seconds % 3600) / 60);
         const secs = Math.floor(seconds % 60);
@@ -57,7 +55,6 @@ export const VideoPlayer = ({ src, title }) => {
     };
 
     const handleOnHover = (event, value) => {
-        console.log('ttt event', event.currentTarget);
         setShowControls(value);
         setIsHovered(value);
         // setTimeout(() => {
@@ -77,15 +74,12 @@ export const VideoPlayer = ({ src, title }) => {
         }
     }, [isHovered, isPlaying]);
 
-    console.log('ttt videoRef', videoRef.current?.currentTime);
-
     if (videoRef?.current) {
         videoRef.current.addEventListener('timeupdate', () => {
             return handleTimeUpdate();
         });
     }
 
-    console.log('ttt duration', duration);
     if (src) {
         return (
             <div>

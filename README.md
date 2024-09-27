@@ -3,6 +3,10 @@
 
 ### `npm install` -> `npm run start` -> `npm run start:backend`
 
+# Generate mocks
+
+### `npm run create:mocks`
+
 ### `npm start`
 
 Runs the app in the development mode.\
