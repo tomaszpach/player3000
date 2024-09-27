@@ -18,20 +18,7 @@ if (process.env.NODE_ENV === 'development') {
     // worker.start({ onUnhandledRequest: 'bypass' });
 }
 
-export const responsePlease = async () => {
-    const response = await fetch('http://localhost:4000/clips')
-    const user = await response.json()
-    console.log('ttt user', user)
-    return user
-}
 
-export const fetchClipById = async (id) => {
-    console.log('ttt id', id)
-    const response = await fetch(`http://localhost:4000/clips?id=${id}`);
-    const data = await response.json();
-    console.log('ttt data', data)
-    return  data;
-};
 
 const router = createBrowserRouter([
     {

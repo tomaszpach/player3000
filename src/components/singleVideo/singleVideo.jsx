@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import {useParams} from "react-router-dom";
-import {fetchClipById} from "../../index";
 import {VideoPlayer} from "./videoPlayer";
 import './singleVideo.scss'
+import {fetchClipById} from "../../API/fetch/fetch";
 
 export const SingleVideo = () => {
     const { videoId } = useParams();
@@ -12,7 +12,6 @@ export const SingleVideo = () => {
 
     useEffect(() => {
         fetchClipById(videoId).then((data) => {
-            console.log('ttt data', data)
             setVideo(...data)
         })
     }, [videoId]);

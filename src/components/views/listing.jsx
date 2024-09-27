@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import {responsePlease} from "../../index";
 import {Link} from "react-router-dom";
+import {responsePlease} from "../../API/fetch/fetch";
 
 export const Listing = () => {
     const [videList, setVideList] = React.useState(null)
