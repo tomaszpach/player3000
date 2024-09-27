@@ -1,0 +1,60 @@
+/* single video */
+
+figure {
+  margin: 0;
+  position: relative;
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    bottom: 6px;
+    width: 100%;
+
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      &.visible {
+        visibility: visible;
+      }
+
+      &.hidden {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+
+#progress {
+  &.hidden {
+    visibility: hidden;
+  }
+
+  &[value] {
+    appearance: none; /* Needed for Safari */
+    border: none; /* Needed for Firefox */
+    color: #e52e71; /* Fallback to a solid color */
+    width: 100%;
+
+    &::-webkit-progress-value {
+      background-image: linear-gradient(
+                      to right,
+                      #ff8a00, #e52e71
+      );
+      transition: width 1s linear;
+    }
+
+    &::-moz-progress-bar {
+      background-image: -moz-linear-gradient(
+                      right,
+                      #ff8a00, #e52e71
+      );
+    }
+  }
+}
+
