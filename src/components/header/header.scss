@@ -1,0 +1,25 @@
+#header {
+    background-color: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    .logo-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        h1 {
+            margin: 0;
+        }
+
+        svg {
+            max-width: 100px;
+        }
+
+        .logo-link {
+            width: 100px;
+            line-height: 0;
+        }
+    }
+}

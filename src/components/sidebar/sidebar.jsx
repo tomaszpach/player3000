@@ -4,7 +4,7 @@ import './sidebar.scss';
 
 export const Sidebar = () => {
     return (
-        <div id="sidebar">
+        <div id="sidebar" className="section">
             <nav>
                 <ul>
                     <li>

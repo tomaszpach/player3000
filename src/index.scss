@@ -64,6 +64,7 @@ button:active {
 
 #root {
     background-color: #eee;
+    padding: 10px;
 }
 
 #content-wrapper {
@@ -81,7 +82,7 @@ button:active {
     width: 100%;
 }
 
-#detail {
+.section {
     margin: 15px;
     padding: 15px;
     background-color: #fff;
