@@ -16,8 +16,6 @@ export const SingleVideo = () => {
 
     return (
         <div className="single-video">
-            <h1>Single Video</h1>
-            <p>Here is a single video</p>
             <VideoPlayer title={video?.name} src={video?.src} />
             {video ? (
                 <div>

@@ -103,7 +103,6 @@ export const VideoPlayer = ({ src, title }) => {
                         >
                             <button
                                 aria-label="Play"
-                                role="button"
                                 onClick={handlePlayPause}
                                 className={isPlaying ? 'pause' : 'play'}
                             >
