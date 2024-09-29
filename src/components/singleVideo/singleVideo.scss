@@ -1,7 +1,14 @@
 /* single video */
-//width: 100%    !important;
-//height: 100%   !important;
+
 .single-video {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+    }
+
     figure {
         margin: 0;
         position: relative;

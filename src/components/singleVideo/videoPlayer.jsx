@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import './videoPlayer.scss';
 
 export const VideoPlayer = ({ src, title }) => {
     const videoRef = useRef(null);
@@ -82,7 +83,7 @@ export const VideoPlayer = ({ src, title }) => {
 
     if (src) {
         return (
-            <div>
+            <div className="video-player">
                 <h1>{title}</h1>
                 <figure
                     onMouseEnter={(event) => handleOnHover(event, true)}

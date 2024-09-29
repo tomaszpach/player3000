@@ -56,7 +56,7 @@ function Transition() {
                     unmountOnExit
                 >
                     {(state) => (
-                        <div ref={nodeRef} className="page">
+                        <div ref={nodeRef} className="page section">
                             {currentOutlet}
                         </div>
                     )}

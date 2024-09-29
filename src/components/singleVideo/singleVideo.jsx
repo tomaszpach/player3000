@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { VideoPlayer } from './videoPlayer';
 import './singleVideo.scss';
 import { fetchClipById } from '../../API/fetch/fetch';
+import { Comments } from '../comments/comments';
 
 export const SingleVideo = () => {
     const { videoId } = useParams();
@@ -17,15 +18,7 @@ export const SingleVideo = () => {
     return (
         <div className="single-video">
             <VideoPlayer title={video?.name} src={video?.src} />
-            {video ? (
-                <div>
-                    <h2>{video.name}</h2>
-                    <p>{video.description}</p>
-                    <img src={video.thumbnail} alt={video.title} />
-                </div>
-            ) : (
-                <p>Loading...</p>
-            )}
+            <Comments comments={video?.comments} />
         </div>
     );
 };
