@@ -3,18 +3,27 @@
     margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 0;
+    padding-left: 0;
 
     .logo-title {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 30px;
 
         h1 {
             margin: 0;
+            font-family: 'Jacquarda Bastarda 9', serif;
+            font-weight: 400;
+            font-style: normal;
         }
 
         svg {
             max-width: 100px;
+        }
+
+        .logo {
+            max-width: 100px;
+            border-radius: 15px;
         }
 
         .logo-link {
