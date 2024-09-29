@@ -1,11 +1,14 @@
 
 # How to start?
 
-### `npm install` -> `npm run start` -> `npm run start:backend`
-
-## Then create your first mocks with this command
-
+## First generate mocks
 ### `npm run create:mocks`
+
+## Then install dependencies
+### `npm install`
+
+## Then start the project
+### `npm run start` + `npm run start:backend`
 
 # Generate mocks
 
