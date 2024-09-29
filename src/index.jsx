@@ -1,40 +1,70 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+    createBrowserRouter,
+    RouterProvider,
+    useLocation,
+    useOutlet,
+} from 'react-router-dom';
 import './index.scss';
-import { Root } from './components/root';
 import ErrorPage from './error-page';
-import Contact from './routes/contact';
 import { Listing } from './components/views/listing';
 import { SingleVideo } from './components/singleVideo/singleVideo';
+import { createRef } from 'react';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { Header } from './components/header/header';
+import { Sidebar } from './components/sidebar/sidebar';
 
-if (process.env.NODE_ENV === 'development') {
-    // server.listen()
-    // worker.start({ onUnhandledRequest: 'bypass' });
-}
+const routes = [
+    { path: '/', name: 'Home', element: <Listing />, nodeRef: createRef() },
+    {
+        path: 'video/:videoId',
+        name: 'About',
+        element: <SingleVideo />,
+        nodeRef: createRef(),
+    },
+];
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Root />,
+        element: <Transition />,
         errorElement: <ErrorPage />,
-        // loader: rootLoader,
-        children: [
-            {
-                path: '/',
-                element: <Listing />,
-            },
-            {
-                path: 'video/:videoId',
-                element: <SingleVideo />,
-            },
-            {
-                path: 'contacts/:contactId',
-                element: <Contact />,
-            },
-        ],
+        children: routes.map((route) => ({
+            index: route.path === '/',
+            path: route.path === '/' ? undefined : route.path,
+            element: route.element,
+        })),
     },
 ]);
+
+function Transition() {
+    const location = useLocation();
+    const currentOutlet = useOutlet();
+    const { nodeRef } =
+        routes.find((route) => route.path === location.pathname) ?? {};
+    return (
+        <>
+            <Header />
+            <Sidebar />
+            <SwitchTransition>
+                <CSSTransition
+                    key={location.pathname}
+                    nodeRef={nodeRef}
+                    timeout={300}
+                    classNames="page"
+                    unmountOnExit
+                >
+                    {(state) => (
+                        <div ref={nodeRef} className="page">
+                            {currentOutlet}
+                        </div>
+                    )}
+                </CSSTransition>
+            </SwitchTransition>
+        </>
+    );
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
