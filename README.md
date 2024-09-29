@@ -3,6 +3,10 @@
 
 ### `npm install` -> `npm run start` -> `npm run start:backend`
 
+## Then create your first mocks with this command
+
+### `npm run create:mocks`
+
 # Generate mocks
 
 ### `npm run create:mocks`
