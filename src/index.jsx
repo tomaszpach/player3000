@@ -54,9 +54,7 @@ function Transition() {
                     unmountOnExit
                 >
                     {(state) => (
-                        <div ref={nodeRef} className="page section">
-                            {currentOutlet}
-                        </div>
+                        <div className="page section">{currentOutlet}</div>
                     )}
                 </CSSTransition>
             </SwitchTransition>
