@@ -13,8 +13,6 @@ import { SingleVideo } from './components/singleVideo/singleVideo';
 import { createRef } from 'react';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { Header } from './components/header/header';
-import { Sidebar } from './components/sidebar/sidebar';
-import { Sort } from './components/sort/sort';
 
 const routes = [
     { path: '/', name: 'Home', element: <Listing />, nodeRef: createRef() },
@@ -47,7 +45,6 @@ function Transition() {
     return (
         <>
             <Header />
-            <Sidebar />
             <SwitchTransition>
                 <CSSTransition
                     key={location.pathname}

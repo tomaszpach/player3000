@@ -1,59 +1,39 @@
 import React from 'react';
+import './sort.scss';
+import { SORTING_OPTIONS, SORTING_VALUES } from '../../consts/consts';
+import { SortingButtons } from './sortingButtons';
 
-// A toolbar that lets a user sort the list of clips by name or created date
 export const Sort = ({ setSortBy }) => {
+    const [sortByValue, setSortByValue] = React.useState('newest');
+
     const sortByOrder = (sortBy) => {
-        switch (sortBy) {
-            case 'newest':
-                return setSortBy('-created_at');
-            case 'oldest':
-                return setSortBy('created_at');
+        setSortByValue(sortBy);
 
-            case 'name-asc':
-                return setSortBy('name');
-            case 'name-desc':
-                return setSortBy('-name');
-
-            case 'most-liked':
-                return setSortBy('-likes');
-            case 'least-liked':
-                return setSortBy('likes');
-
-            default:
-                return setSortBy('-created_at');
-        }
+        setSortBy(SORTING_OPTIONS[sortBy]);
     };
 
     return (
         <div className="sort">
-            <select
-                onChange={(event) => setSortBy(event.target.value)}
-                className="sort-select"
-            >
-                <option value="created_at">Newest</option>
-                <option value="oldest">Oldest</option>
-                <option value="name">Most liked</option>
-                <option value="least-liked">Least liked</option>
-            </select>
+            <SortingButtons
+                buttonsType="sort-by-date"
+                selectedSort={sortByValue}
+                options={[SORTING_VALUES.newest, SORTING_VALUES.oldest]}
+                sortByOrder={sortByOrder}
+            />
 
-            <div className="sort-by-date">
-                <button onClick={() => sortByOrder('newest')}>newest</button>
-                <button onClick={() => sortByOrder('oldest')}>oldest</button>
-            </div>
+            <SortingButtons
+                buttonsType="sort-by-name"
+                selectedSort={sortByValue}
+                options={[SORTING_VALUES.nameAsc, SORTING_VALUES.nameDesc]}
+                sortByOrder={sortByOrder}
+            />
 
-            <div className="sort-by-name">
-                <button onClick={() => sortByOrder('name-asc')}>name</button>
-                <button onClick={() => sortByOrder('name-desc')}>-name</button>
-            </div>
-
-            <div className="sort-by-likes">
-                <button onClick={() => sortByOrder('most-liked')}>
-                    most liked
-                </button>
-                <button onClick={() => sortByOrder('least-liked')}>
-                    least liked
-                </button>
-            </div>
+            <SortingButtons
+                buttonsType="sort-by-likes"
+                selectedSort={sortByValue}
+                options={[SORTING_VALUES.mostLiked, SORTING_VALUES.leastLiked]}
+                sortByOrder={sortByOrder}
+            />
         </div>
     );
 };

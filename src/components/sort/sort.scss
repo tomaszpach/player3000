@@ -1,18 +1,21 @@
 .sort {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 20px;
-    padding: 0 20px;
-    align-items: center;
 
-    .sort-select {
+    .sort-group {
         display: flex;
-        gap: 10px;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
+        gap: 15px;
 
-        option {
-            background-color: #fff;
-            color: #000;
+        button {
+            cursor: pointer;
+
+            &.active {
+                background-color: #f0f0f0;
+            }
         }
     }
 }

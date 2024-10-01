@@ -1,4 +1,8 @@
 #listing {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
     .videos {
         display: grid;
         gap: 20px;

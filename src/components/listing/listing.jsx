@@ -4,12 +4,11 @@ import { responsePlease } from '../../API/fetch/fetch';
 import './listing.scss';
 import { Sort } from '../sort/sort';
 import { timeAgo } from '../../helpers/dates';
+import { SORTING_OPTIONS } from '../../consts/consts';
 
 export const Listing = () => {
     const [videList, setVideList] = React.useState(null);
-    const [sortBy, setSortBy] = React.useState('id');
-
-    console.log('sortBy', sortBy);
+    const [sortBy, setSortBy] = React.useState(SORTING_OPTIONS.newest);
 
     useEffect(() => {
         responsePlease(sortBy).then((data) => {
