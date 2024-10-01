@@ -1,3 +1,131 @@
 .video-player {
     flex: 3;
+
+    figure {
+        margin: 0;
+        position: relative;
+        line-height: 1;
+
+        button {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+            box-shadow: none;
+
+            &:hover {
+                color: #e52e71;
+            }
+        }
+
+        video {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 1200px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #00000099;
+            border-radius: 8px;
+            padding: 10px;
+
+            &.hidden {
+                visibility: hidden;
+            }
+
+            &.visible {
+                visibility: visible;
+            }
+        }
+
+        figcaption {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            max-width: 1200px;
+
+            .actions {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 0 15px;
+                height: 35px;
+
+                &.visible {
+                    visibility: visible;
+                }
+
+                &.hidden {
+                    visibility: hidden;
+                }
+
+                button {
+                    background-color: #00000099;
+                    height: 35px;
+                    font-size: 15px;
+                }
+
+                label {
+                    display: flex;
+                    align-items: center;
+                    height: 35px;
+                    border-radius: 15px;
+                    background-color: #00000099;
+                    padding: 0 10px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    #progress-bar {
+        height: 20px;
+        width: 100%;
+        background-color: #00000099;
+
+        &.hidden {
+            visibility: hidden;
+        }
+    }
+
+    #all {
+        width: 100%;
+        height: 20px;
+        position: absolute;
+        bottom: 0;
+        z-index: 3;
+    }
+
+    #progress,
+    #buffered {
+        height: 20px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #progress {
+        background-color: #e52e71;
+        z-index: 2;
+    }
+
+    #buffered {
+        z-index: 1;
+        background-color: #370014;
+    }
 }

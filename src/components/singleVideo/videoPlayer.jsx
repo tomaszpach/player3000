@@ -1,37 +1,32 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './videoPlayer.scss';
 
 export const VideoPlayer = ({ src, title }) => {
     const videoRef = useRef(null);
-    const [isPlaying, setIsPlaying] = React.useState(false);
-    const [progress, setProgress] = React.useState(0);
-    const [currentTime, setCurrentTime] = React.useState('00:00');
-    const [duration, setDuration] = React.useState('00:00');
-    const [isHovered, setIsHovered] = React.useState(false);
-    const [showControls, setShowControls] = React.useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [bufferedPercentage, setBufferedPercentage] = useState(0);
+    const [currentTime, setCurrentTime] = useState('00:00');
+    const [duration, setDuration] = useState('00:00');
+    const [isHovered, setIsHovered] = useState(false);
+    const [showControls, setShowControls] = useState(true);
 
-    const formatTime = (seconds) => {
-        const mins = Math.floor((seconds % 3600) / 60);
-        const secs = Math.floor(seconds % 60);
-
-        const formattedMins = String(mins).padStart(2, '0');
-        const formattedSecs = String(secs).padStart(2, '0');
-
-        return `${formattedMins}:${formattedSecs}`;
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
-    // todo add play button and hover effect
     const handlePlayPause = () => {
-        if (videoRef.current.paused) {
-            videoRef.current.play();
-            setIsPlaying(true);
-            // setTimeout(() => {
-            //     setShowControls(false);
-            // }, 3000)
-        } else {
+        if (isPlaying) {
             videoRef.current.pause();
-            setIsPlaying(false);
+        } else {
+            videoRef.current.play();
         }
+
+        handleBuffered();
+        handleTimeUpdate();
+        setIsPlaying(!isPlaying);
     };
 
     const handleTimeUpdate = () => {
@@ -44,7 +39,15 @@ export const VideoPlayer = ({ src, title }) => {
         setDuration(formatTime(duration));
     };
 
-    const handleProgressClick = (event) => {
+    const handleBuffered = () => {
+        const buffered = videoRef.current?.buffered;
+        const bufferedTime = buffered?.end(buffered?.length - 1);
+        const progress = (bufferedTime / videoRef.current?.duration) * 100;
+
+        setBufferedPercentage(progress);
+    };
+
+    const handleSeekBarClick = (event) => {
         const progressBar = event.target;
         const rect = progressBar.getBoundingClientRect();
         const clickX = event.clientX - rect.left;
@@ -52,15 +55,19 @@ export const VideoPlayer = ({ src, title }) => {
             (clickX / progressBar.offsetWidth) * videoRef.current.duration;
 
         videoRef.current.currentTime = newTime;
+        handleBuffered();
         handleTimeUpdate();
+    };
+
+    const handleJump = (time) => {
+        videoRef.current.currentTime += time;
+        handleBuffered();
+        handleBuffered();
     };
 
     const handleOnHover = (event, value) => {
         setShowControls(value);
         setIsHovered(value);
-        // setTimeout(() => {
-        //     setShowControls(false);
-        // }, 1000)
     };
 
     useEffect(() => {
@@ -75,10 +82,13 @@ export const VideoPlayer = ({ src, title }) => {
         }
     }, [isHovered, isPlaying]);
 
+    const timeUpdateEvents = () => {
+        handleBuffered();
+        handleTimeUpdate();
+    };
+
     if (videoRef?.current) {
-        videoRef.current.addEventListener('timeupdate', () => {
-            return handleTimeUpdate();
-        });
+        videoRef.current.addEventListener('timeupdate', timeUpdateEvents);
     }
 
     if (src) {
@@ -98,6 +108,31 @@ export const VideoPlayer = ({ src, title }) => {
                         <source src={src} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
+
+                    <div
+                        className={`controls ${showControls ? 'visible' : 'hidden'}`}
+                    >
+                        <button
+                            className="go-back"
+                            onClick={() => handleJump(-10)}
+                        >
+                            -10s
+                        </button>
+                        <button
+                            aria-label="Play"
+                            onClick={handlePlayPause}
+                            className={isPlaying ? 'pause' : 'play'}
+                        >
+                            {isPlaying ? '❙❙' : '►'}
+                        </button>
+                        <button
+                            className="go-forward"
+                            onClick={() => handleJump(10)}
+                        >
+                            +10s
+                        </button>
+                    </div>
+
                     <figcaption>
                         <div
                             className={`actions ${showControls ? 'visible' : 'hidden'}`}
@@ -113,16 +148,21 @@ export const VideoPlayer = ({ src, title }) => {
                                 {currentTime} / {duration}
                             </label>
                         </div>
-                        <progress
-                            id="progress"
+                        <div
+                            id="progress-bar"
                             className={showControls ? 'visible' : 'hidden'}
-                            max="100"
-                            value={progress}
-                            onClick={handleProgressClick}
-                            onChange={handleTimeUpdate}
                         >
-                            Progress
-                        </progress>
+                            <div id="all" onClick={handleSeekBarClick} />
+                            <div
+                                id="progress"
+                                style={{ width: `${progress}%` }}
+                                onChange={handleTimeUpdate}
+                            />
+                            <div
+                                id="buffered"
+                                style={{ width: `${bufferedPercentage}%` }}
+                            />
+                        </div>
                     </figcaption>
                 </figure>
             </div>
