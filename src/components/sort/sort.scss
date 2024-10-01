@@ -1,0 +1,18 @@
+.sort {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    align-items: center;
+
+    .sort-select {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        option {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}

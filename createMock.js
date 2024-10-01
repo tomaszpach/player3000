@@ -237,6 +237,7 @@ const clips = Array.from({ length: 10 }, (_, index) => ({
         new Date().toISOString().split('T')[0]
     ),
     src: randomVideoLinks[randomValue(randomVideoLinks.length)],
+    likes: randomValue(100),
     comments: getRandomComment(),
 }));
 

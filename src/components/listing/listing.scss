@@ -15,6 +15,11 @@
         @media (min-width: 1200px) {
             grid-template-columns: repeat(4, 1fr);
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
     }
 
     .video-item {
@@ -31,7 +36,7 @@
             transform: translateY(-5px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-            img {
+            .thumbnail {
                 transform: scale(1.02);
 
                 @media (min-width: 768px) {
@@ -40,10 +45,42 @@
             }
         }
 
-        img {
+        .title {
+            margin-top: 0;
+        }
+
+        .thumbnail {
             width: 100%;
             border-radius: 8px;
             transition: transform 0.3s ease;
+        }
+
+        .dates {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .time-ago {
+                color: #666;
+            }
+
+            .created-at {
+                color: #999;
+                font-size: 12px;
+            }
+        }
+
+        .likes {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 1;
+
+            .like-count {
+                color: #666;
+            }
         }
     }
 }

@@ -8,7 +8,8 @@
 ### `npm install`
 
 ## Then start the project
-### `npm run start` + `npm run start:backend`
+### `npm run start`
+### `npm run start:backend`
 
 # Generate mocks
 
