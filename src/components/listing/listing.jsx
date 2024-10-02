@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { responsePlease } from '../../API/fetch/fetch';
+import { getClips } from '../../API/fetch/fetch';
 import './listing.scss';
 import { Sort } from '../sort/sort';
 import { timeAgo } from '../../helpers/dates';
@@ -11,7 +11,7 @@ export const Listing = () => {
     const [sortBy, setSortBy] = React.useState(SORTING_OPTIONS.newest);
 
     useEffect(() => {
-        responsePlease(sortBy).then((data) => {
+        getClips(sortBy).then((data) => {
             setVideList(data);
         });
     }, [sortBy]);

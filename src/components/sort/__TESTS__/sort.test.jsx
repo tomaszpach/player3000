@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { SORTING_OPTIONS, SORTING_VALUES } from '../../../consts/consts';
+import { SORTING_OPTIONS, SORTING_OPTIONS_NAMES } from '../../../consts/consts';
 import { Sort } from '../sort';
 
 describe('Sort Component', () => {
@@ -14,13 +14,13 @@ describe('Sort Component', () => {
         render(<Sort setSortBy={setSortByMock} />);
 
         const sortByDateButton = screen.getByRole('button', {
-            name: SORTING_VALUES.newest,
+            name: SORTING_OPTIONS_NAMES.newest,
         });
         const sortByNameButton = screen.getByRole('button', {
-            name: SORTING_VALUES.nameAsc,
+            name: SORTING_OPTIONS_NAMES.nameAsc,
         });
         const sortByLikesButton = screen.getByRole('button', {
-            name: SORTING_VALUES.mostLiked,
+            name: SORTING_OPTIONS_NAMES.mostLiked,
         });
 
         expect(sortByDateButton).toBeInTheDocument();
@@ -32,7 +32,7 @@ describe('Sort Component', () => {
         render(<Sort setSortBy={setSortByMock} />);
 
         const sortByDateButton = screen.getByRole('button', {
-            name: SORTING_VALUES.oldest,
+            name: SORTING_OPTIONS_NAMES.oldest,
         });
 
         fireEvent.click(sortByDateButton);
@@ -44,7 +44,7 @@ describe('Sort Component', () => {
         render(<Sort setSortBy={setSortByMock} />);
 
         const sortByDateButton = screen.getByRole('button', {
-            name: SORTING_VALUES.newest,
+            name: SORTING_OPTIONS_NAMES.newest,
         });
 
         fireEvent.click(sortByDateButton);
