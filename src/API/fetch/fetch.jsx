@@ -13,7 +13,9 @@ export const getClips = async (sortBy) => {
 };
 
 export const getClipById = async (id) => {
-    const response = await fetch(`http://localhost:4000/clips?id=${id}`);
+    const URL = `${BASE_URL}${CLIPS}`;
+
+    const response = await fetch(`${URL}?id=${id}`);
 
     return await response.json();
 };
