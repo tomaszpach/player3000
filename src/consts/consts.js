@@ -15,3 +15,12 @@ export const SORTING_OPTIONS = {
     mostLiked: '-likes',
     leastLiked: 'likes',
 };
+
+export const SORTING_OPTIONS_NAMES = {
+    newest: 'Newest',
+    oldest: 'Oldest',
+    nameAsc: 'Name (A-Z)',
+    nameDesc: 'Name (Z-A)',
+    mostLiked: 'Most liked',
+    leastLiked: 'Least liked',
+};

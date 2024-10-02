@@ -1,4 +1,5 @@
 import React from 'react';
+import { SORTING_OPTIONS_NAMES } from '../../consts/consts';
 
 export const SortingButtons = ({
     sortByOrder,
@@ -17,13 +18,13 @@ export const SortingButtons = ({
                 className={isActiveClass(firstOption)}
                 onClick={() => sortByOrder(firstOption)}
             >
-                {firstOption}
+                {SORTING_OPTIONS_NAMES[firstOption]}
             </button>
             <button
                 className={isActiveClass(secondOption)}
                 onClick={() => sortByOrder(secondOption)}
             >
-                {secondOption}
+                {SORTING_OPTIONS_NAMES[secondOption]}
             </button>
         </div>
     );
