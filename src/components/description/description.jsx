@@ -5,7 +5,12 @@ export const Description = ({ video }) => {
     return (
         <div className="description">
             <h3>Description</h3>
-            <p>{video?.description}</p>
+
+            {video?.description?.length > 0 ? (
+                <p>{video?.description}</p>
+            ) : (
+                <p>No description</p>
+            )}
         </div>
     );
 };
