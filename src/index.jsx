@@ -18,7 +18,7 @@ const routes = [
     { path: '/', name: 'Home', element: <Listing />, nodeRef: createRef() },
     {
         path: 'video/:videoId',
-        name: 'About',
+        name: 'Video',
         element: <SingleVideo />,
         nodeRef: createRef(),
     },
