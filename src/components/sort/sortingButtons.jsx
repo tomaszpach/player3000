@@ -10,12 +10,15 @@ export const SortingButtons = ({ sortByOrder, selectedSort, options }) => {
     return (
         <div className="sort-group">
             <button
+                data-testid={firstOption}
                 className={isActiveClass(firstOption)}
                 onClick={() => sortByOrder(firstOption)}
             >
                 {SORTING_OPTIONS_NAMES[firstOption]}
             </button>
+
             <button
+                data-testid={secondOption}
                 className={isActiveClass(secondOption)}
                 onClick={() => sortByOrder(secondOption)}
             >

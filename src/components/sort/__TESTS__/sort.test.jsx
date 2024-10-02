@@ -1,6 +1,11 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { SORTING_OPTIONS, SORTING_OPTIONS_NAMES } from '../../../consts/consts';
+import '@testing-library/jest-dom';
+import {
+    SORTING_OPTIONS,
+    SORTING_OPTIONS_NAMES,
+    SORTING_VALUES,
+} from '../../../consts/consts';
 import { Sort } from '../sort';
 
 describe('Sort Component', () => {
@@ -43,9 +48,7 @@ describe('Sort Component', () => {
     test('maintains selected sort value', () => {
         render(<Sort setSortBy={setSortByMock} />);
 
-        const sortByDateButton = screen.getByRole('button', {
-            name: SORTING_OPTIONS_NAMES.newest,
-        });
+        const sortByDateButton = screen.getByTestId(SORTING_VALUES.newest);
 
         fireEvent.click(sortByDateButton);
 
