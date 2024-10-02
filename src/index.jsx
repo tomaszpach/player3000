@@ -40,21 +40,24 @@ const router = createBrowserRouter([
 function Transition() {
     const location = useLocation();
     const currentOutlet = useOutlet();
-    const { nodeRef } =
-        routes.find((route) => route.path === location.pathname) ?? {};
+
+    const nodeRef = React.useRef(null);
+
     return (
         <>
             <Header />
             <SwitchTransition>
                 <CSSTransition
                     key={location.pathname}
-                    nodeRef={nodeRef}
                     timeout={300}
                     classNames="page"
                     unmountOnExit
+                    nodeRef={nodeRef}
                 >
                     {(state) => (
-                        <div className="page section">{currentOutlet}</div>
+                        <div ref={nodeRef} className="page section">
+                            {currentOutlet}
+                        </div>
                     )}
                 </CSSTransition>
             </SwitchTransition>

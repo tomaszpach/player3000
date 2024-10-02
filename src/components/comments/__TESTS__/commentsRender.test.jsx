@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { CommentsRender } from '../commentsRender';
 
 jest.mock('../../../helpers/dates');

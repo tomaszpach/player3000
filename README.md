@@ -11,3 +11,5 @@
 ### `npm run start`
 ### `npm run start:backend`
 
+## Tests
+### `npm run test`
