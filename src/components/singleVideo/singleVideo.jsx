@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { VideoPlayer } from './videoPlayer';
 import './singleVideo.scss';
-import { fetchClipById } from '../../API/fetch/fetch';
+import { getClipById } from '../../API/fetch/fetch';
 import { Comments } from '../comments/comments';
 
 export const SingleVideo = () => {
@@ -10,7 +10,7 @@ export const SingleVideo = () => {
     const [video, setVideo] = React.useState(null);
 
     useEffect(() => {
-        fetchClipById(videoId).then((data) => {
+        getClipById(videoId).then((data) => {
             setVideo(...data);
         });
     }, [videoId]);
