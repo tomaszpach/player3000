@@ -1,7 +1,12 @@
 .sort {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 15px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 
     .sort-group {
         display: flex;
@@ -12,9 +17,13 @@
 
         button {
             cursor: pointer;
+            color: #ee6654;
+            transition: all 0.3s ease;
 
-            &.active {
-                background-color: #f0f0f0;
+            &.active,
+            &:hover {
+                background-color: #ee6654;
+                color: #fff;
             }
         }
     }

@@ -94,7 +94,7 @@ export const VideoPlayer = ({ src, title }) => {
     if (src) {
         return (
             <div className="video-player">
-                <h1>{title}</h1>
+                <h1 className="title">{title}</h1>
                 <figure
                     onMouseEnter={(event) => handleOnHover(event, true)}
                     onMouseLeave={(event) => handleOnHover(event, false)}

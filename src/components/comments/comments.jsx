@@ -3,16 +3,16 @@ import './comments.scss';
 import { CommentsRender } from './commentsRender';
 
 export const Comments = ({ comments }) => {
-    const commentsNumber = comments?.length;
-    const firstTenComments = comments?.slice(0, 10);
+    const commentsAmount = comments?.length;
 
-    if (commentsNumber === 0) {
-        return <h1>No comments yet</h1>;
-    }
-
-    if (commentsNumber > 10) {
-        return CommentsRender({ comments: firstTenComments });
-    }
-
-    return CommentsRender({ comments });
+    return (
+        <div className="comments">
+            <h2 className="title">Comments</h2>
+            {!comments || commentsAmount === 0 ? (
+                <h2>No comments yet</h2>
+            ) : (
+                <CommentsRender comments={comments} />
+            )}
+        </div>
+    );
 };

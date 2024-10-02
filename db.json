@@ -6,65 +6,7 @@
       "thumbnail": "https://picsum.photos/500/300?random=1",
       "created_at": "2003-02-16",
       "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      "likes": 36,
-      "comments": [
-        {
-          "id": 1,
-          "author": "Henry Jackson",
-          "comment": "I found this video to be very helpful. The tips and tricks shared were practical and useful. I will definitely be applying some of these techniques in my own work.",
-          "dateAdded": "2023-07-24",
-          "likes": 26
-        },
-        {
-          "id": 2,
-          "author": "GadgetGeek",
-          "comment": "I appreciate the detailed explanations in this video. It was very helpful.",
-          "dateAdded": "2021-06-21",
-          "likes": 19
-        },
-        {
-          "id": 3,
-          "author": "Frank Green",
-          "comment": "Very informative.",
-          "dateAdded": "2023-11-18",
-          "likes": 48
-        },
-        {
-          "id": 4,
-          "author": "Jane Smith",
-          "comment": "Good job!",
-          "dateAdded": "2020-08-02",
-          "likes": 45
-        },
-        {
-          "id": 5,
-          "author": "BeautyGuru",
-          "comment": "Nice work!",
-          "dateAdded": "2021-03-16",
-          "likes": 9
-        },
-        {
-          "id": 6,
-          "author": "HistoryBuff",
-          "comment": "I learned a lot from this video. The content was well-researched and presented. The examples used were very relevant and helped clarify the concepts.",
-          "dateAdded": "2020-04-21",
-          "likes": 35
-        },
-        {
-          "id": 7,
-          "author": "Frank Green",
-          "comment": "I found this video to be very helpful. The tips and tricks shared were practical and useful. I will definitely be applying some of these techniques in my own work.",
-          "dateAdded": "2022-04-03",
-          "likes": 38
-        },
-        {
-          "id": 8,
-          "author": "Karen Miller",
-          "comment": "This was a fantastic video. The explanations were clear and the examples were very helpful. I appreciate the effort put into making this video so informative.",
-          "dateAdded": "2020-09-21",
-          "likes": 77
-        }
-      ]
+      "likes": 36
     },
     {
       "id": 2,

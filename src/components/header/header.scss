@@ -10,25 +10,26 @@
         align-items: center;
         gap: 30px;
 
-        h1 {
+        .title {
+            display: none;
             margin: 0;
-            font-family: 'Jacquarda Bastarda 9', serif;
+            font-family: 'Sixtyfour Convergence', sans-serif;
             font-weight: 400;
             font-style: normal;
-        }
 
-        svg {
-            max-width: 100px;
-        }
-
-        .logo {
-            max-width: 100px;
-            border-radius: 15px;
+            @media (min-width: 576px) {
+                display: block;
+            }
         }
 
         .logo-link {
-            width: 100px;
+            width: fit-content;
             line-height: 0;
+
+            .logo {
+                max-width: 210px;
+                border-radius: 15px;
+            }
         }
     }
 }

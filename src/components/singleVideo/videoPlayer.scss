@@ -1,6 +1,10 @@
 .video-player {
     flex: 3;
 
+    .title {
+        font-family: 'Sixtyfour Convergence', sans-serif;
+    }
+
     figure {
         margin: 0;
         position: relative;
@@ -16,7 +20,7 @@
             box-shadow: none;
 
             &:hover {
-                color: #e52e71;
+                color: #ee6654;
             }
         }
 
@@ -120,7 +124,7 @@
     }
 
     #progress {
-        background-color: #e52e71;
+        background-color: #ee6654;
         z-index: 2;
     }
 

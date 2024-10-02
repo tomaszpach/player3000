@@ -5,14 +5,6 @@ import { CommentsRender } from '../commentsRender';
 jest.mock('../../../helpers/dates');
 
 describe('CommentsRender Component', () => {
-    test('renders the comments section with title', () => {
-        render(<CommentsRender comments={[]} />);
-
-        const titleElement = screen.getByText('Comments');
-
-        expect(titleElement).toBeInTheDocument();
-    });
-
     test('renders a single comment with correct data', () => {
         const comments = [
             {
@@ -58,13 +50,5 @@ describe('CommentsRender Component', () => {
         expect(authorElements.length).toBe(2);
         expect(likesElements.length).toBe(2);
         expect(commentElements.length).toBe(2);
-    });
-
-    test('renders correctly when comments prop is undefined', () => {
-        render(<CommentsRender />);
-
-        const titleElement = screen.getByText('Comments');
-
-        expect(titleElement).toBeInTheDocument();
     });
 });

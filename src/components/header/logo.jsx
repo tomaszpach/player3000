@@ -1,3 +1,4 @@
 import React from 'react';
+import { ReactComponent as LogoSvg } from '../../media/logo.svg';
 
-export const Logo = () => <img className="logo" src="/logo.jpeg" alt="logo" />;
+export const Logo = () => <LogoSvg />;
