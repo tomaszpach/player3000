@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './videoPlayer.scss';
+import { formatTime } from '../../helpers/dates';
 
 export const VideoPlayer = ({ src, title }) => {
     const videoRef = useRef(null);
@@ -10,12 +11,9 @@ export const VideoPlayer = ({ src, title }) => {
     const [duration, setDuration] = useState('00:00');
     const [isHovered, setIsHovered] = useState(false);
     const [showControls, setShowControls] = useState(true);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    const formatTime = (time) => {
-        const minutes = Math.floor(time / 60);
-        const seconds = Math.floor(time % 60);
-        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    };
+    const areControlsVisible = showControls && isLoaded ? 'visible' : 'hidden';
 
     const handlePlayPause = () => {
         if (isPlaying) {
@@ -87,6 +85,10 @@ export const VideoPlayer = ({ src, title }) => {
         handleTimeUpdate();
     };
 
+    const handleLoadedData = () => {
+        if (!isLoaded) setIsLoaded(true);
+    };
+
     if (videoRef?.current) {
         videoRef.current.addEventListener('timeupdate', timeUpdateEvents);
     }
@@ -99,19 +101,23 @@ export const VideoPlayer = ({ src, title }) => {
                     onMouseEnter={(event) => handleOnHover(event, true)}
                     onMouseLeave={(event) => handleOnHover(event, false)}
                 >
+                    {!isLoaded && (
+                        <div className="loading-placeholder">
+                            <div className="loader">Loading...</div>
+                        </div>
+                    )}
                     <video
                         ref={videoRef}
                         width="640"
                         height="360"
-                        onClick={handlePlayPause}
+                        onClick={isLoaded ? handlePlayPause : null}
+                        onLoadedData={handleLoadedData}
                     >
                         <source src={src} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
 
-                    <div
-                        className={`controls ${showControls ? 'visible' : 'hidden'}`}
-                    >
+                    <div className={`controls ${areControlsVisible}`}>
                         <button
                             className="go-back"
                             onClick={() => handleJump(-10)}
@@ -134,9 +140,7 @@ export const VideoPlayer = ({ src, title }) => {
                     </div>
 
                     <figcaption>
-                        <div
-                            className={`actions ${showControls ? 'visible' : 'hidden'}`}
-                        >
+                        <div className={`actions ${areControlsVisible}`}>
                             <button
                                 aria-label="Play"
                                 onClick={handlePlayPause}
@@ -148,10 +152,7 @@ export const VideoPlayer = ({ src, title }) => {
                                 {currentTime} / {duration}
                             </label>
                         </div>
-                        <div
-                            id="progress-bar"
-                            className={showControls ? 'visible' : 'hidden'}
-                        >
+                        <div id="progress-bar" className={areControlsVisible}>
                             <div id="all" onClick={handleSeekBarClick} />
                             <div
                                 id="progress"
