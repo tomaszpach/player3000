@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { VideoPlayer } from './videoPlayer';
 import './singleVideo.scss';
-import { getClipById } from '../../API/fetch/fetch';
+import { getClipById } from '../../API/clips/clips';
 import { Comments } from '../comments/comments';
+import { Description } from '../description/description';
 
 export const SingleVideo = () => {
     const { videoId } = useParams();
@@ -19,7 +20,7 @@ export const SingleVideo = () => {
         <div className="single-video">
             <div className="video-description">
                 <VideoPlayer title={video?.name} src={video?.src} />
-                <p>{video?.description}</p>
+                <Description video={video} />
             </div>
 
             <Comments comments={video?.comments} />

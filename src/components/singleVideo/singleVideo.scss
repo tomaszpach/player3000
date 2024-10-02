@@ -9,5 +9,8 @@
 
     .video-description {
         flex: 3;
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
     }
 }

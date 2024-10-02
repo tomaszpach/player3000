@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getClips } from '../../API/fetch/fetch';
+import { getClips } from '../../API/clips/clips';
 import './listing.scss';
 import { Sort } from '../sort/sort';
 import { timeAgo } from '../../helpers/dates';

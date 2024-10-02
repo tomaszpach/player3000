@@ -7,7 +7,7 @@ describe('Title Component', () => {
     test('renders the title with correct text', () => {
         render(<Title />);
 
-        const titleElement = screen.getByText('Premium');
+        const titleElement = screen.getByText('Player3000');
 
         expect(titleElement).toBeInTheDocument();
     });
@@ -15,7 +15,7 @@ describe('Title Component', () => {
     test('has the correct class name', () => {
         render(<Title />);
 
-        const titleElement = screen.getByText('Premium');
+        const titleElement = screen.getByText('Player3000');
 
         expect(titleElement).toHaveClass('title');
     });

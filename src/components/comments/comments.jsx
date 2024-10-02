@@ -7,9 +7,10 @@ export const Comments = ({ comments }) => {
 
     return (
         <div className="comments">
-            <h2 className="title">Comments</h2>
+            <h3 className="title">Comments</h3>
+
             {!comments || commentsAmount === 0 ? (
-                <h2>No comments yet</h2>
+                <h3>No comments yet</h3>
             ) : (
                 <CommentsRender comments={comments} />
             )}

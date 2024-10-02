@@ -11,6 +11,7 @@ export const Header = () => {
                 <Link to="/" className="logo-link">
                     <Logo />
                 </Link>
+
                 <Title />
             </div>
         </header>
