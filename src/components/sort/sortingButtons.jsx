@@ -1,19 +1,14 @@
 import React from 'react';
 import { SORTING_OPTIONS_NAMES } from '../../consts/consts';
 
-export const SortingButtons = ({
-    sortByOrder,
-    buttonsType,
-    selectedSort,
-    options,
-}) => {
+export const SortingButtons = ({ sortByOrder, selectedSort, options }) => {
     const isActiveClass = (checkBy) =>
         checkBy === selectedSort ? 'active' : 'not-active';
     const firstOption = options[0];
     const secondOption = options[1];
 
     return (
-        <div className={`sort-group ${buttonsType}`}>
+        <div className="sort-group">
             <button
                 className={isActiveClass(firstOption)}
                 onClick={() => sortByOrder(firstOption)}

@@ -15,21 +15,18 @@ export const Sort = ({ setSortBy }) => {
     return (
         <div className="sort">
             <SortingButtons
-                buttonsType="sort-by-date"
                 selectedSort={sortByValue}
                 options={[SORTING_VALUES.newest, SORTING_VALUES.oldest]}
                 sortByOrder={sortByOrder}
             />
 
             <SortingButtons
-                buttonsType="sort-by-name"
                 selectedSort={sortByValue}
                 options={[SORTING_VALUES.nameAsc, SORTING_VALUES.nameDesc]}
                 sortByOrder={sortByOrder}
             />
 
             <SortingButtons
-                buttonsType="sort-by-likes"
                 selectedSort={sortByValue}
                 options={[SORTING_VALUES.mostLiked, SORTING_VALUES.leastLiked]}
                 sortByOrder={sortByOrder}
