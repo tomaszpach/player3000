@@ -11,14 +11,19 @@
     .sort-group {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         gap: 15px;
 
         button {
             cursor: pointer;
             color: #ee6654;
+            flex: 1;
             transition: all 0.3s ease;
+
+            @media (min-width: 768px) {
+                flex: none;
+            }
 
             &.active,
             &:hover {

@@ -17,7 +17,11 @@ export const SingleVideo = () => {
 
     return (
         <div className="single-video">
-            <VideoPlayer title={video?.name} src={video?.src} />
+            <div className="video-description">
+                <VideoPlayer title={video?.name} src={video?.src} />
+                <p>{video?.description}</p>
+            </div>
+
             <Comments comments={video?.comments} />
         </div>
     );
